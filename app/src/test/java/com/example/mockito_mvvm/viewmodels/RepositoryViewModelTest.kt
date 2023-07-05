@@ -19,10 +19,11 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
-class RepositoryViewModelTest{
+class RepositoryViewModelTest {
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
+
     @Mock
     private lateinit var mockRepository: GithubRepository
 
@@ -31,7 +32,7 @@ class RepositoryViewModelTest{
     private val testDispatcher = StandardTestDispatcher()
 
     @Before
-    fun setup(){
+    fun setup() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(testDispatcher)
         viewModel = RepositoryViewModel(mockRepository)
@@ -58,7 +59,7 @@ class RepositoryViewModelTest{
     }
 
     @After
-    fun close(){
+    fun close() {
         Dispatchers.shutdown()
     }
 }
